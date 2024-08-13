@@ -1,0 +1,9 @@
+.airflow
+**/__pycache__
+logs/*
+.tool-versions
+TODO
+.pytest_cache/*
+infra/.env
+issue.md
+temp/
