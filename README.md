@@ -3,8 +3,14 @@
 Airflow DAG 개발 테스트를 위한 레포지토리
 
 - DAG 작성 시, airflow 기능을 구현하며 배우고 연습합니다.
+- Pipeline 에서 필요한 개발 연습용 페이지
 
 ---
+## Set local env
+- python : 3.10.14
+```bash
+pip install -r requirements.txt
+```
 
 ## Set airflow
 
