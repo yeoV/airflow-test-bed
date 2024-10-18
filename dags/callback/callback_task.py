@@ -3,7 +3,6 @@ import pendulum
 
 from airflow.decorators import dag, task
 from airflow.decorators.python import python_task
-from airflow.operators.python import PythonOperator
 
 KST = pendulum.timezone("Asia/Seoul")
 

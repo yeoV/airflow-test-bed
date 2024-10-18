@@ -6,12 +6,10 @@
     - Branching
 """
 
-import json
-from typing import Dict, Tuple, Union
+from typing import Dict
 
-from task_group.print_xcom_task import print_xcom_group
+from subtask_group.subtast_xcom_print import print_xcom_group
 from config.work_config import Work
-from lib.utils import load_config, get_current_date
 
 from airflow.decorators import dag, task
 from airflow.operators.empty import EmptyOperator

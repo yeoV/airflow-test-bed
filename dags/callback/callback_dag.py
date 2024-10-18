@@ -6,7 +6,9 @@ from airflow.operators.empty import EmptyOperator
 
 
 def task_failure_alert(context):
-    print(f"Task has failed, task_instance_key_str: {context['task_instance_key_str']}")
+    print(
+        f"Task has failed, task_instance_key_str: {context['task_instance_key_str']}"
+    )
 
 
 def dag_success_alert(context):
@@ -28,7 +30,9 @@ with DAG(
     print(pendulum.timezones)
     task1 = EmptyOperator(task_id="task1")
     task2 = EmptyOperator(task_id="task2")
-    task3 = EmptyOperator(task_id="task3", on_success_callback=[dag_success_alert])
+    task3 = EmptyOperator(
+        task_id="task3", on_success_callback=[dag_success_alert]
+    )
     task4 = EmptyOperator(task_id="test4")
 
     task1 >> [task2, task4] >> task3

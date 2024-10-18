@@ -1,4 +1,4 @@
-from airflow.decorators import task, task_group
+from airflow.decorators import task_group
 from airflow.operators.empty import EmptyOperator
 
 test = "{hello} HELLO WORLD {world}"

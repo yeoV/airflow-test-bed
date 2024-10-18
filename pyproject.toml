@@ -3,3 +3,18 @@ addopts = [
     "--import-mode=importlib",
 ]
 
+[tool.ruff]
+line-length = 80
+
+
+[tool.ruff.lint]
+select =[
+    # pycodestyle
+    "E",
+    # PyFlakes
+    "F",
+    "B",
+    "SIM",
+    "G"
+]
+ignore = ["E501"] # len 80 limit

@@ -1,14 +1,12 @@
 import yaml
 import logging
 import datetime
-import json
 from typing import Dict
-from jinja2 import Template, Environment, FileSystemLoader
+from jinja2 import Template
 
 from hdfs import InsecureClient
 from elasticsearch import Elasticsearch
 
-from airflow.decorators import task
 from airflow.models.connection import Connection
 
 # 전역 변수 -> Variables 로 빼기?
@@ -28,7 +26,10 @@ def load_config(config_path: str) -> Dict[str, str]:
             config = yaml.safe_load(f)
         return config
     except (FileNotFoundError, yaml.YAMLError) as e:
-        logger.error(f"[Error] Fail load common config.File path : {config_path}")
+        logger.error(
+            "[Error] Fail load common config. File path %(config_path)s",
+            extra=dict(config_path=config_path),
+        )
         raise e
 
 

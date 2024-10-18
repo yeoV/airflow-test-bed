@@ -1,8 +1,6 @@
-import json
-from typing import Dict, Tuple, Union
+from typing import Dict
 
 from config.work_config import Work
-from lib.utils import load_config, get_current_date
 
 from airflow.decorators import dag, task
 

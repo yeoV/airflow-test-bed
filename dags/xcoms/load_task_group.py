@@ -12,7 +12,6 @@ CONFIG_FILE = f"{AIRFLOW_HOME}/config/work.yaml"
 
 @dag(dag_id="load_task_group", tags=["xcoms"])
 def load_task_group():
-
     # Pydantic config load
     @task
     def load_config():

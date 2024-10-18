@@ -2,7 +2,7 @@ import os
 import time
 import random
 
-from multiprocessing import Process, Pool, parent_process, current_process
+from multiprocessing import parent_process, current_process
 
 from airflow.decorators import task, dag
 
@@ -30,9 +30,13 @@ def check_pid():
     print(
         f" Parent Process : {os.getppid()} is daemon ? : {parent_process().daemon if parent_process() is not None else None} "
     )
-    print(f" Current Process : {os.getpid()} is daemon ? : {current_process().daemon} ")
+    print(
+        f" Current Process : {os.getpid()} is daemon ? : {current_process().daemon} "
+    )
     current_process().daemon = False
-    print(f" Current Process : {os.getpid()} is daemon ? : {current_process().daemon} ")
+    print(
+        f" Current Process : {os.getpid()} is daemon ? : {current_process().daemon} "
+    )
 
 
 @dag(
@@ -41,7 +45,6 @@ def check_pid():
     catchup=False,  # 시작 날짜부터 하나씩 수행될 것인지
 )
 def main():
-
     check_pid() >> random_task()
 
 

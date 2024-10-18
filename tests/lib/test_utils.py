@@ -20,7 +20,7 @@ class TestLoadEsConfig(unittest.TestCase):
         conn.get_password.return_value = "fake_key"
 
         # Run create es config func
-        es_client = load_es_config()
+        load_es_config()
 
         # self.assertEqual(es_client.transport.hosts, "https://localhost:39200")
         mock_conn.assert_called_once_with("elasticsearch_default")
@@ -34,7 +34,6 @@ class TestLoadEsConfig(unittest.TestCase):
         conn = mock_conn.return_value
         conn.get_uri.return_value = "http://user:fake@localhost:9870"
         conn.login = "user"
-        conn
         # conn.get_password.return_value = "fake_key"
 
         load_hdfs_config()

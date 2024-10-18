@@ -2,8 +2,6 @@
 DAG CONFIG 값 Pydantic으로 정합성 check
 """
 
-from __future__ import annotations
-
 import logging
 from typing import Dict, Union
 from pydantic import BaseModel, ValidationError
@@ -34,4 +32,5 @@ class Work(BaseModel, extra="forbid"):
             # print(load_config(config_path))
             return Work(**load_config(config_path)).model_dump()
         except ValidationError as e:
-            logging.error(f"Mismatch config file and class fields..\n {e}")
+            logger.exception("Mismatch config file and class fields.")
+            raise e
